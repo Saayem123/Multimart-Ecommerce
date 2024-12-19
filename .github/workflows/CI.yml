@@ -15,8 +15,11 @@ jobs:
                 node-version: "20"
             - name : "check node version"
               run: node --version
+            - name : "clone the repository "
+              uses : actions/checkout@v4
+              
             - name : "install dependencies"
               run: npm install 
-              
+
 
                
