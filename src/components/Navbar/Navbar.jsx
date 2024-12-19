@@ -3,11 +3,13 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 const NavBar = () => {
   const { cartList } = useSelector((state) => state.cart);
   const [expand, setExpand] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  // fixed Header
+
+  // Fixed Header
   function scrollHandler() {
     if (window.scrollY >= 100) {
       setIsFixed(true);
@@ -15,13 +17,9 @@ const NavBar = () => {
       setIsFixed(false);
     }
   }
+
   window.addEventListener("scroll", scrollHandler);
-  // useEffect(()=> {
-  //   if(CartItem.length ===0) {
-  //     const storedCart = localStorage.getItem("cartItem");
-  //     setCartItem(JSON.parse(storedCart));
-  //   }
-  // },[])
+
   return (
     <Navbar
       fixed="top"
@@ -49,7 +47,7 @@ const NavBar = () => {
               />
             </svg>
             <Link
-              aria-label="Go to Cart Page"
+              aria-label="Cart Icon"
               to="/cart"
               className="cart"
               data-num={cartList.length}
@@ -109,6 +107,7 @@ const NavBar = () => {
                 <span className="nav-link-label">Cart</span>
               </Link>
             </Nav.Item>
+
             <Nav.Item className="expanded-cart">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +122,7 @@ const NavBar = () => {
                 />
               </svg>
               <Link
-                aria-label="Go to Cart Page"
+                aria-label="Cart Page Link"
                 to="/cart"
                 className="cart"
                 data-num={cartList.length}
