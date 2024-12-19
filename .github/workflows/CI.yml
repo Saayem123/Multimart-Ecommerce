@@ -9,11 +9,11 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name : "setup nodeJS"
+            - name : "setup nodeJS in the poject"
               uses: actions/setup-node@v4
               with: 
                 node-version: "20"
             - name : "check node version"
               run: node --version
-              
+
                
